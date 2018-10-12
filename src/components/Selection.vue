@@ -49,3 +49,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '@/assets/style/_common.scss';
+
+</style>

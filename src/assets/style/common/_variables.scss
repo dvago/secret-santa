@@ -1,0 +1,21 @@
+/* Colours */
+$tart: #FE4A49;
+$tangerine: #FAA916;
+$yellow: #FFBC42;
+$yellow--light: #FED766;
+$electro: #0288D1;
+
+/* Typography */
+$font-size: 1em;
+$font-size--sm: $font-size * .9;
+$font-size--md: $font-size * 1.25;
+$font-size--lg: $font-size * 3;
+
+/* Spacing */
+$spacing: 1em;
+$spacing--sm: $spacing / 2;
+$spacing--md: $spacing * 1.5;
+$spacing--lg: $spacing * 2;
+
+/* Breakpoints */ 
+$screen-sm: 576px;

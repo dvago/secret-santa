@@ -4,9 +4,7 @@
     <p>Use your provided user and password to login</p>
     <form action="" autocomplete="off">
       <input type="text" placeholder="Email" v-model="email">
-      {{ email }}
-      <input type="password" placeholder="Password" v-model="pwd">
-      {{ pwd }}
+      <input type="text" placeholder="Password" v-model="pwd">
       <button type="button" @click="login(email, pwd)">Login</button>
     </form>
     <p>{{ errorMessage }}</p>
@@ -39,3 +37,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '@/assets/style/_common.scss';
+
+</style>

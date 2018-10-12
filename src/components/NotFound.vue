@@ -4,3 +4,8 @@
     <router-link :to="{ path: '/login' }">Go to the login page</router-link>
   </main>
 </template>
+
+<style lang="scss">
+  @import '@/assets/style/_common.scss';
+
+</style>
