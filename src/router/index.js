@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueCookie from 'vue-cookie'
+
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -7,6 +9,7 @@ import Login from '@/components/Login'
 import Selection from '@/components/Selection'
 
 Vue.use(Router)
+Vue.use(VueCookie)
 
 const router = new Router({
   mode: 'history',
