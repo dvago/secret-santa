@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Rammetto+One');
+
 /* Colours */
 $tart: #FE4A49;
 $tangerine: #FAA916;
@@ -11,6 +13,8 @@ $font-size: 1em;
 $font-size--sm: $font-size * .9;
 $font-size--md: $font-size * 1.25;
 $font-size--lg: $font-size * 3;
+$font-family-title: 'Pacifico', cursive;
+$font-family-sub: 'Rammetto One', cursive;
 
 /* Spacing */
 $spacing: 1em;
@@ -20,3 +24,7 @@ $spacing--lg: $spacing * 2;
 
 /* Breakpoints */ 
 $screen-sm: 576px;
+
+/* Other sizes */
+$border-radius: 6px;
+$border-round: 50%;
