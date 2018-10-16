@@ -4,10 +4,10 @@
       <h1 class="login__title">Welcome <span>to</span></h1>
       <h2 class="login__subtitle">your very own <span>Secret Santa Party</span></h2>
       <p>Use your provided user and password to login</p>
-      <form action="" autocomplete="off" class="login__form">
-        <input type="text" placeholder="Email" v-model="email">
-        <input type="password" placeholder="Password" autocomplete="off" v-model="pwd">
-        <button type="button" @click="login(email, pwd)">Login</button>
+      <form action="" class="login__form">
+        <input type="text" placeholder="Email" class="login__field" v-model="email">
+        <input type="password" placeholder="Password" autocomplete="off" class="login__field" v-model="pwd">
+        <button type="button" @click="login(email, pwd)" class="login__button">Login</button>
       </form>
       <p>{{ errorMessage }}</p>
     </section>
@@ -115,6 +115,41 @@ export default {
         top: 50%;
         right: 0;
         transform: translateX(50%) translateY(-50%);
+      }
+    }
+
+    &__field {
+      padding: $spacing--sm;
+      border: 0;
+      display: block;
+      margin: 0 0 $spacing--sm;
+      width: 100%;
+      border-radius: $border-radius;
+      font-family: $font-family-sub;
+      color: $tart;
+
+      &::placeholder {
+        color: $tart;
+      }
+    }
+
+    &__button {
+      background: $yellow--light;
+      padding: $spacing--sm $spacing;
+      border-radius: $border-radius--lg;
+      color: $tart;
+      border: 0;
+      display: block;
+      width: 100%;
+      margin-top: $spacing;
+      font-weight: bold;
+      font-family: $font-family-sub;
+      cursor: pointer;
+      transition: .25s background ease-in;
+
+      &:hover {
+        background: $yellow;
+        transition: .25s background ease-in;
       }
     }
   }
