@@ -3,13 +3,18 @@
     <section class="login_wrap">
       <h1 class="login__title">Welcome <span>to</span></h1>
       <h2 class="login__subtitle">your very own <span>Secret Santa Party</span></h2>
-      <p>Use your provided user and password to login</p>
+      <p class="login__hint">Use your provided email and password to login</p>
       <form action="" class="login__form">
-        <input type="text" placeholder="Email" class="login__field" v-model="email">
-        <input type="password" placeholder="Password" autocomplete="off" class="login__field" v-model="pwd">
-        <button type="button" @click="login(email, pwd)" class="login__button">Login</button>
+        <div class="login__outline">
+          <input type="text" placeholder="Email" class="login__field" v-model="email">
+          <input type="password" placeholder="Password" autocomplete="off" class="login__field" v-model="pwd">
+          <button type="button" @click="login(email, pwd)" class="login__button">Login</button>
+        </div>
       </form>
-      <p>{{ errorMessage }}</p>
+      <p class="login__error" v-if="errorMessage !== null">
+        <span>!</span>
+        {{ errorMessage }}
+      </p>
     </section>
   </main>
 </template>
@@ -150,6 +155,34 @@ export default {
       &:hover {
         background: $yellow;
         transition: .25s background ease-in;
+      }
+    }
+    &__outline {
+      padding: 0 $spacing;
+      margin: 0 $spacing--sm;
+      border-left: 1px dashed $white;
+      border-right: 1px dashed $white;
+    }
+    &__hint {
+      color: $scorpion;
+      margin: $spacing--lg 0 $spacing;
+    }
+
+    &__error {
+      color: $white;
+      background: $electro;
+      padding: $spacing--sm $spacing;
+      border-radius: $border-radius;
+
+      span {
+        font-family: $font-family-sub;
+        display: inline-block;
+        background: $white;
+        color: $electro;
+        padding: $spacing--sm;
+        border-radius: $border-round;
+        width: 2em;
+        margin-right: $spacing--sm;
       }
     }
   }

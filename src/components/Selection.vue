@@ -1,16 +1,20 @@
 <template>
-  <main>
+  <main class="selection">
     <p v-if="gotMySanta">
       Hey you! I already gave you a Santa.
       Please be kind choosing the present for him/her!
     </p>
-    <div v-else>
-      <button @click="randomPick" :disabled="noListAvailable || alreadySelected">pick your santa</button>
+    <div v-else class="selection__box">
+      <h1 class="selection__title">Santa's name picker</h1>
+      <p class="selection__intro">Click the button to randomly select your Santa</p>
+      <button @click="randomPick" :disabled="noListAvailable || alreadySelected" class="selection__button">Pick me a name!</button>
       <p>
         {{ myPick }}
       </p>
     </div>
-    <button @click="logout">See you at the party!</button>
+    <div>
+      <button @click="logout" class="selection__logout">See you at the party!</button>
+    </div>
   </main>
 </template>
 
@@ -95,5 +99,52 @@ export default {
 
 <style lang="scss">
   @import '@/assets/style/_common.scss';
+  $stage-size: 100vh;
 
+  .selection {
+    min-height: $stage-size;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+
+    &__box {
+      background: $yellow;
+      padding: $spacing--lg;
+      border-radius: $border-radius;
+    }
+
+    &__title {
+      color: $white;
+      font-family: $font-family-title;
+      margin: 0;
+    }
+
+    &__intro {
+      color: $white;
+      margin: $spacing--lg 0 $spacing;
+    }
+
+    &__button {
+      color: $white;
+      background: $tart;
+      border-radius: $border-round;
+      border: 4px solid $yellow--light;
+      width: 8em;
+      height: 8em;
+      padding: $spacing;
+      font-family: $font-family-sub;
+    }
+
+    &__logout {
+      margin: $spacing--lg 0;
+      background: $electro;
+      color: $white;
+      padding: $spacing--sm $spacing;
+      border: 0;
+      border-radius: $border-radius--lg;
+    }
+  }
 </style>
