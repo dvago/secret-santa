@@ -1,14 +1,15 @@
 <template>
   <main class="selection">
-    <p v-if="gotMySanta">
-      Hey you! I already gave you a Santa.
-      Please be kind choosing the present for him/her!
-    </p>
+    <div v-if="gotMySanta" class="selection__info">
+      <h2>Hey you!</h2>
+      <p>I already gave you a Santa.</p>
+      <p>Please be kind choosing the present for him/her!</p>
+    </div>
     <div v-else class="selection__box">
       <h1 class="selection__title">Santa's name picker</h1>
       <p class="selection__intro">Click the button to randomly select your Santa</p>
       <button @click="randomPick" :disabled="noListAvailable || alreadySelected" class="selection__button">Pick me a name!</button>
-      <p>
+      <p class="selection__pick" v-if="myPick">
         {{ myPick }}
       </p>
     </div>
@@ -136,6 +137,11 @@ export default {
       height: 8em;
       padding: $spacing;
       font-family: $font-family-sub;
+
+      &:disabled {
+        background: $yellow--light;
+        opacity: .5;
+      }
     }
 
     &__logout {
@@ -145,6 +151,32 @@ export default {
       padding: $spacing--sm $spacing;
       border: 0;
       border-radius: $border-radius--lg;
+    }
+
+    &__pick {
+      padding: $spacing--sm;
+      border: 10px dashed $tart;
+      font-family: $font-family-sub;
+      font-size: $font-size--lg;
+      color: $white;
+      margin: $spacing 0 0;
+    }
+
+    &__info {
+      color: $tart;
+      line-height: 1.2;
+
+      h2 {
+        font-family: $font-family-title;
+        font-size: $font-size--lg;
+        margin: 0;
+      }
+
+      p:first-of-type {
+        font-family: $font-family-sub;
+        font-size: $font-size--md;
+        margin: $spacing 0 0;
+      }
     }
   }
 </style>
