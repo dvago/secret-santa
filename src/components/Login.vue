@@ -3,17 +3,17 @@
     <section class="login_wrap">
       <h1 class="login__title">Welcome <span>to</span></h1>
       <h2 class="login__subtitle">your very own <span>Secret Santa Party</span></h2>
-      <p class="login__hint">Use your provided email and password to login</p>
+      <p class="login__hint">Use your provided user and password to login</p>
       <form action="" class="login__form">
         <div class="login__outline">
-          <input type="text" placeholder="Email" class="login__field" v-model="email">
+          <input type="text" placeholder="User" class="login__field" v-model="user">
           <input type="password" placeholder="Password" autocomplete="off" class="login__field" v-model="pwd">
-          <button type="button" @click="login(email, pwd)" class="login__button">Login</button>
+          <button type="button" @click="login(user, pwd)" class="login__button">Login</button>
         </div>
       </form>
       <p class="login__error" v-if="errorMessage !== null">
         <span>!</span>
-        {{ errorMessage }}
+        {{ errorMessage | polishedMessage}}
       </p>
     </section>
   </main>
@@ -27,20 +27,30 @@ export default {
   name: 'Login',
   data () {
     return {
-      email: '',
+      user: '',
       pwd: '',
       errorMessage: null
     }
   },
   methods: {
-    login (email, pwd) {
-      firebase.auth().signInWithEmailAndPassword(email, pwd)
+    login (user, pwd) {
+      this.email = `${user}@santa.claus`
+      firebase.auth().signInWithEmailAndPassword(this.email, pwd)
         .then((user) => {
           this.$router.replace('/secret-selection')
         })
         .catch((error) => {
           this.errorMessage = error.message
         })
+    }
+  },
+  filters: {
+    polishedMessage (val) {
+      if (val.indexOf('email address') > 0) {
+        return 'Your user does not exist'
+      }
+
+      return val
     }
   }
 }
