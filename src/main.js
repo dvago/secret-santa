@@ -4,6 +4,7 @@ import Vue from 'vue'
 import VueFire from 'vuefire'
 import App from './App'
 import router from './router'
+import store from './store'
 
 import Firebase from 'firebase/app'
 import 'firebase/auth'
@@ -23,6 +24,7 @@ Firebase.auth().onAuthStateChanged((user) => {
     new Vue({
       el: '#app',
       router,
+      store,
       components: { App },
       template: '<App/>'
     })
