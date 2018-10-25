@@ -100,16 +100,30 @@ export default {
 
 <style lang="scss">
   @import '@/assets/style/_common.scss';
-  $stage-size: 100vh;
 
   .selection {
     min-height: $stage-size;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-content: stretch;
     align-items: center;
+
+    &:before {
+      content: '';
+      display: block;
+      background: $tart;
+      height: 20vh;
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    }
 
     &__box {
       background: $yellow;
@@ -137,10 +151,21 @@ export default {
       height: 8em;
       padding: $spacing;
       font-family: $font-family-sub;
+      cursor: pointer;
+      transition: transform .25s linear;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform .25s linear;
+      }
 
       &:disabled {
         background: $yellow--light;
         opacity: .5;
+
+        &:hover {
+          transform: none;
+        }
       }
     }
 
@@ -148,6 +173,7 @@ export default {
       margin: $spacing--lg 0;
       background: $electro;
       color: $white;
+      cursor: pointer;
       padding: $spacing--sm $spacing;
       border: 0;
       border-radius: $border-radius--lg;

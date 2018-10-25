@@ -59,18 +59,32 @@ export default {
 <style lang="scss">
   @import '@/assets/style/_common.scss';
 
-  $stage-size: 100vh;
   $ticket-dot-size: 3em;
   $ticket-h: 8em;
 
   .login {
     min-height: $stage-size;
+    background: transparent;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-content: stretch;
     align-items: center;
+
+    &:before {
+      content: '';
+      display: block;
+      background: $tangerine;
+      height: 20vh;
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    }
 
     &__wrap {
       order: 0;

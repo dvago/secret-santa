@@ -7,11 +7,13 @@ import 'firebase/auth'
 
 import Login from '@/components/Login'
 import Selection from '@/components/Selection'
+import NotFound from '@/components/NotFound'
 
 Vue.use(Router)
 Vue.use(VueCookie)
 
 const router = new Router({
+  base: '/secret-santa/',
   mode: 'history',
   routes: [
     {
@@ -20,17 +22,22 @@ const router = new Router({
       component: Login
     },
     {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '*',
+      name: 'NotFound',
+      component: NotFound
+    },
+    {
       path: '/secret-selection',
       name: 'Selection',
       component: Selection,
       meta: {
         requiresAuth: true
       }
-    },
-    {
-      path: '*',
-      name: 'NotAccess',
-      component: Login
     }
   ]
 })
