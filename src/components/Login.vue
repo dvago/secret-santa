@@ -115,6 +115,7 @@ export default {
       border-radius: $border-radius;
       min-height: $ticket-h;
       position: relative;
+      z-index: 1;
 
       @media (min-width: $screen-md) {
         margin: 0 auto;

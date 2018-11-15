@@ -102,7 +102,7 @@ export default {
   @import '@/assets/style/_common.scss';
 
   .selection {
-    min-height: $stage-size;
+    min-height: $stage-size;  
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -114,6 +114,8 @@ export default {
       background: $yellow;
       padding: $spacing--lg;
       border-radius: $border-radius;
+      position: relative;
+      z-index: 1;
     }
 
     &__title {
@@ -162,6 +164,8 @@ export default {
       padding: $spacing--sm $spacing;
       border: 0;
       border-radius: $border-radius--lg;
+      z-index: 1;
+      position: relative;
     }
 
     &__pick {
