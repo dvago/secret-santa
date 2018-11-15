@@ -61,30 +61,16 @@ export default {
 
   $ticket-dot-size: 3em;
   $ticket-h: 8em;
+  $ticket-m-width: 24rem;
 
   .login {
     min-height: $stage-size;
-    background: transparent;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-content: stretch;
     align-items: center;
-
-    &:before {
-      content: '';
-      display: block;
-      background: $tangerine;
-      height: 20vh;
-      position: absolute;
-      z-index: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: -1;
-      clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
-    }
 
     &__wrap {
       order: 0;
@@ -96,7 +82,7 @@ export default {
       margin: 0;
       font-family: $font-family-title;
       font-size: $font-size--lg;
-      color: $tart;
+      color: $white;
 
       span {
         display: block;
@@ -112,7 +98,7 @@ export default {
       margin: 0;
       font-size: $font-size--lg * .7;
       font-family: $font-family-title;
-      color: $tart;
+      color: $white;
       line-height: .5;
 
       span {
@@ -124,11 +110,16 @@ export default {
     }
 
     &__form {
-      background: $tart;
+      background: $white;
       padding: $spacing $spacing--lg;
       border-radius: $border-radius;
       min-height: $ticket-h;
       position: relative;
+
+      @media (min-width: $screen-md) {
+        margin: 0 auto;
+        max-width: $ticket-m-width;
+      }
 
       &::before {
         @extend %dot;
@@ -150,6 +141,7 @@ export default {
     &__field {
       padding: $spacing--sm;
       border: 0;
+      background: $yellow--light;
       display: block;
       margin: 0 0 $spacing--sm;
       width: 100%;
@@ -163,10 +155,10 @@ export default {
     }
 
     &__button {
-      background: $yellow--light;
+      background: $tangerine;
       padding: $spacing--sm $spacing;
       border-radius: $border-radius--lg;
-      color: $tart;
+      color: $white;
       border: 0;
       display: block;
       width: 100%;
@@ -184,25 +176,25 @@ export default {
     &__outline {
       padding: 0 $spacing;
       margin: 0 $spacing--sm;
-      border-left: 1px dashed $white;
-      border-right: 1px dashed $white;
+      border-left: 1px dashed $tart;
+      border-right: 1px dashed $tart;
     }
     &__hint {
-      color: $scorpion;
+      color: $white;
       margin: $spacing--lg 0 $spacing;
     }
 
     &__error {
-      color: $white;
-      background: $electro;
+      color: $tart;
+      background: $white;
       padding: $spacing--sm $spacing;
       border-radius: $border-radius;
 
       span {
         font-family: $font-family-sub;
         display: inline-block;
-        background: $white;
-        color: $electro;
+        background: $tart;
+        color: $white;
         padding: $spacing--sm;
         border-radius: $border-round;
         width: 2em;
@@ -216,7 +208,7 @@ export default {
     display: block;
     width: $ticket-dot-size;
     height: $ticket-dot-size;
-    background: $white;
+    background: $tart;
     border-radius: $border-round;
   }
 

@@ -103,27 +103,12 @@ export default {
 
   .selection {
     min-height: $stage-size;
-    background-color: transparent;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-content: stretch;
     align-items: center;
-
-    &:before {
-      content: '';
-      display: block;
-      background: $tart;
-      height: 20vh;
-      position: absolute;
-      z-index: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: -1;
-      clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
-    }
 
     &__box {
       background: $yellow;
@@ -189,7 +174,7 @@ export default {
     }
 
     &__info {
-      color: $tart;
+      color: $white;
       line-height: 1.2;
 
       h2 {

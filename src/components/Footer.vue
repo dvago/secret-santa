@@ -10,6 +10,10 @@
   footer {
     padding: $spacing;
     height: 3rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 
     p {
       color: $white;

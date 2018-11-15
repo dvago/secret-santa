@@ -25,10 +25,11 @@ $spacing--lg: $spacing * 2;
 
 /* Breakpoints */ 
 $screen-sm: 576px;
+$screen-md: 768px;
 
 /* Other sizes */
 $border-radius: 6px;
 $border-radius--lg: 20px;
 $border-round: 50%;
 $footer-h: 3rem;
-$stage-size: calc(100vh - #{$footer-h});
+$stage-size: 100vh;
